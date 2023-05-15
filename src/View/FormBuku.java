@@ -5,7 +5,10 @@
 package View;
 
 import Controller.ControllerBuku;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -85,12 +88,32 @@ public class FormBuku extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtJudul);
 
         btnSimpan.setText("Simpan");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSimpanActionPerformed(evt);
+            }
+        });
 
         btnUbah.setText("Ubah");
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUbahActionPerformed(evt);
+            }
+        });
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
 
         tblBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,6 +126,11 @@ public class FormBuku extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblBuku.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBukuMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblBuku);
 
         jLabel9.setText("Cari Buku");
@@ -234,6 +262,38 @@ public class FormBuku extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        // TODO add your handling code here:
+        ctBuku.insert();
+        ctBuku.isiTable();
+        ctBuku.reset();
+    }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void tblBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBukuMouseClicked
+        // TODO add your handling code here:
+        int row = tblBuku.getSelectedRow();
+        ctBuku.isiField(row);
+    }//GEN-LAST:event_tblBukuMouseClicked
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+        ctBuku.reset();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+        // TODO add your handling code here:
+        ctBuku.update();
+        ctBuku.isiTable();
+        ctBuku.reset();
+    }//GEN-LAST:event_btnUbahActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // TODO add your handling code here:
+        ctBuku.delete();
+        ctBuku.isiTable();
+        ctBuku.reset();
+    }//GEN-LAST:event_btnHapusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -303,5 +363,37 @@ public class FormBuku extends javax.swing.JFrame {
 
     public JTable getTabelData() {
         return tblBuku;
+    }
+    
+    public JTextField gettxtID() {
+        return txtID;
+    }
+    
+    public JTextArea gettxtJudul() {
+        return txtJudul;
+    }
+    
+    public JTextField gettxtJenis() {
+        return txtJenis;
+    }
+    
+    public JTextField gettxtPenulis() {
+        return txtPenulis;
+    }
+    
+    public JTextField gettxtPenerbit() {
+        return txtPenerbit;
+    }
+    
+    public JTextField gettxtTahun() {
+        return txtTahun;
+    }
+    
+    public JComboBox getStatus() {
+        return setStatus;
+    }
+    
+    public JTextField gettxtJumlah() {
+        return txtJumlah;
     }
 }
