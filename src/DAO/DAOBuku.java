@@ -10,9 +10,12 @@ import Model.Buku;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -54,7 +57,93 @@ public class DAOBuku implements IDAOBuku{
         return listBuku;
     }
     
+    @Override
+    public void insert(Buku b) {
+        PreparedStatement statement = null;
+        try
+        {
+            statement = con.prepareStatement(strInsert);
+            statement.setInt(1, b.getId_buku());
+            statement.setString(2, b.getJudul_buku());
+            statement.setString(3, b.getKatalog_jenis());
+            statement.setString(4, b.getPenulis());
+            statement.setString(5, b.getPenerbit());
+            statement.setInt(6, b.getTahun_terbit());
+            statement.setString(7, b.getStatus());
+            statement.setInt(8, b.getJumlah_tersedia());
+            statement.execute();
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Gagal Input!");
+        }
+        finally
+        {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal Input!");
+            }
+        }
+    }
+    
+    @Override
+    public void update(Buku b) {
+        PreparedStatement statement = null;
+        try
+        {
+            statement = con.prepareStatement(strUpdate);
+            statement.setString(1, b.getJudul_buku());
+            statement.setString(2, b.getKatalog_jenis());
+            statement.setString(3, b.getPenulis());
+            statement.setString(4, b.getPenerbit());
+            statement.setInt(5, b.getTahun_terbit());
+            statement.setString(6, b.getStatus());
+            statement.setInt(7, b.getJumlah_tersedia());
+            statement.setInt(8, b.getId_buku());
+            statement.execute();
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Gagal Update!");
+        }
+        finally
+        {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal Update!");
+            }
+        }
+    }
+    
+    @Override
+    public void delete(int id) {
+        PreparedStatement statement = null;
+        try
+        {
+            statement = con.prepareStatement(strDelete);
+            statement.setInt(1, id);
+            statement.execute();
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Gagal Delete!");
+        }
+        finally
+        {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Gagal Delete!");
+            }
+        }
+    }
+    
     Connection con;
     // SQL Query
     String strRead = "select * from tbl_buku";
+    String strInsert = "insert into tbl_buku (id_buku,judul_buku,katalog_jenis,penulis,penerbit,tahun_terbit,status,jumlah_tersedia) values (?,?,?,?,?,?,?,?);";
+    String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=? where id_buku=?";
+    String strDelete = "delete from tbl_buku where id=?";
 }
