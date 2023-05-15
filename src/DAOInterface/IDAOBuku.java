@@ -14,4 +14,10 @@ import java.util.List;
 public interface IDAOBuku {
     //read data
     public List<Buku> getAll();
+    //insert data
+    public void insert(Buku b);
+    //update data
+    public void update(Buku b);
+    //delete data
+    public void delete(int id);
 }
