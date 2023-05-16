@@ -142,8 +142,8 @@ public class DAOBuku implements IDAOBuku{
     
     Connection con;
     // SQL Query
-    String strRead = "select * from tbl_buku";
+    String strRead = "select * from tbl_buku;";
     String strInsert = "insert into tbl_buku (id_buku,judul_buku,katalog_jenis,penulis,penerbit,tahun_terbit,status,jumlah_tersedia) values (?,?,?,?,?,?,?,?);";
-    String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=? where id_buku=?";
-    String strDelete = "delete from tbl_buku where id=?";
+    String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=? where id_buku=?;";
+    String strDelete = "delete from tbl_buku where id=?;";
 }
