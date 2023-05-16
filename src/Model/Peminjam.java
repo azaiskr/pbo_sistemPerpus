@@ -10,7 +10,7 @@ package Model;
  */
 public class Peminjam {
 
-    /**
+    /** 
      * @return the id_peminjam
      */
     public Integer getId_peminjam() {

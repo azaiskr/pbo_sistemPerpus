@@ -24,14 +24,13 @@ public class PeminjamController {
     public PeminjamController(FormPeminjam frame){
         this.frame = frame;
         implPeminjam = new DAOPeminjam();
-        listPeminjam = implPeminjam.getAll();
     }
     
     //fill table
     public void isiTabel(){
         listPeminjam = implPeminjam.getAll();
-        TabelPeminjamModel tmb = new TabelPeminjamModel(listPeminjam);
-        frame.getTabelData().setModel(tmb);
+        TabelPeminjamModel tblPeminjam = new TabelPeminjamModel(listPeminjam);
+        frame.getTabelData().setModel(tblPeminjam);
     }
     
     //Reset Form
@@ -58,16 +57,58 @@ public class PeminjamController {
     public void insert(){
         if(!frame.getNumId().getText().trim().isEmpty()&!frame.getTxtNama().getText().trim().isEmpty()){
             Peminjam mhs = new Peminjam();
-            mhs.setId_peminjam(Integer.valueOf(frame.getNumId().getText()));
+            mhs.setId_peminjam(Integer.parseInt(frame.getNumId().getText()));
+            mhs.setNama_peminjam(frame.getTxtNama().getText());
+            mhs.setProdi(frame.getTxtProdi().getText());
+            mhs.setJurusan(frame.getTxtJurusan().getText());
+            mhs.setAngkatan(Integer.parseInt(frame.getNumAngkatan().getText()));
+            mhs.setNomor_Hp(frame.getTxtNoHP().getText());
+            implPeminjam.insert(mhs);
+            JOptionPane.showMessageDialog(null," Data Berhasil Disimpan!");
+        } else {
+            JOptionPane.showMessageDialog(frame, "Data Tidak Boleh Kosong!");
+        }
+    }
+    
+    //Update data
+    public void update(){
+        if(!frame.getNumId().getText().trim().isEmpty()){
+            Peminjam mhs = new Peminjam();
             mhs.setNama_peminjam(frame.getTxtNama().getText());
             mhs.setProdi(frame.getTxtProdi().getText());
             mhs.setJurusan(frame.getTxtJurusan().getText());
             mhs.setAngkatan(Integer.valueOf(frame.getNumAngkatan().getText()));
             mhs.setNomor_Hp(frame.getTxtNoHP().getText());
-            implPeminjam.insert(mhs);
-            JOptionPane.showMessageDialog(null," Data Berhasil Disimpan");
+            mhs.setId_peminjam(Integer.valueOf(frame.getNumId().getText()));
+            implPeminjam.update(mhs);
+            JOptionPane.showMessageDialog(null," Update berhasil!");
         } else {
-            JOptionPane.showMessageDialog(frame, "Data Tidak Boleh Kosong");
+            JOptionPane.showMessageDialog(frame, "Pilih data yang adakan diubah");
+        }
+    }
+    
+    //Delete data
+    public void delete(){
+        if (!frame.getNumId().getText().trim().isEmpty()){
+            implPeminjam.delete(Integer.parseInt(frame.getNumId().getText()));
+            JOptionPane.showMessageDialog(null,"Data berhasil dihapus!");
+        } else {
+            JOptionPane.showMessageDialog(frame,"Pilih data yang akan di hapus!");
+        }  
+    }
+    
+    //find data
+    public void isiTabelCariNama(){
+        listPeminjam = implPeminjam.getCariNama(frame.getTxtCariNama().getText());
+        TabelPeminjamModel tbPeminjam = new TabelPeminjamModel(listPeminjam);
+        frame.getTabelData().setModel(tbPeminjam);
+    }
+    public void cariNama(){
+        if(!frame.getTxtCariNama().getText().trim().isEmpty()){
+            implPeminjam.getCariNama(frame.getTxtCariNama().getText());
+            isiTabelCariNama();
+        } else {
+            JOptionPane.showMessageDialog(frame, "Pilih data dulu");
         }
     }
 }

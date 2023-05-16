@@ -15,9 +15,6 @@ import javax.swing.JTextField;
  */
 public class FormPeminjam extends javax.swing.JFrame {
     PeminjamController PeminjamCtrl;
-    /**
-     * Creates new form FormPeminjam
-     */
     
     public FormPeminjam() {
         initComponents();
@@ -46,6 +43,9 @@ public class FormPeminjam extends javax.swing.JFrame {
     }
     public JTextField getTxtNoHP(){
         return txtNomor;
+    }
+    public JTextField getTxtCariNama(){
+        return txtCari;
     }
     
     public JButton getBtnCreate(){
@@ -274,6 +274,11 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnUpdate.setMaximumSize(new java.awt.Dimension(78, 23));
         btnUpdate.setMinimumSize(new java.awt.Dimension(78, 23));
         btnUpdate.setPreferredSize(new java.awt.Dimension(78, 23));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnErase.setBackground(new java.awt.Color(204, 51, 0));
         btnErase.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
@@ -283,9 +288,14 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnErase.setMaximumSize(new java.awt.Dimension(78, 23));
         btnErase.setMinimumSize(new java.awt.Dimension(78, 23));
         btnErase.setPreferredSize(new java.awt.Dimension(78, 23));
+        btnErase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEraseActionPerformed(evt);
+            }
+        });
 
         tabelData.setAutoCreateRowSorter(true);
-        tabelData.setBackground(new java.awt.Color(102, 102, 102));
+        tabelData.setBackground(new java.awt.Color(51, 51, 51));
         tabelData.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 3, 2, 3));
         tabelData.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         tabelData.setForeground(new java.awt.Color(255, 255, 255));
@@ -301,9 +311,14 @@ public class FormPeminjam extends javax.swing.JFrame {
             }
         ));
         tabelData.setGridColor(new java.awt.Color(255, 255, 255));
-        tabelData.setSelectionBackground(new java.awt.Color(255, 153, 51));
-        tabelData.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tabelData.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        tabelData.setSelectionForeground(new java.awt.Color(51, 51, 51));
         tabelData.getTableHeader().setReorderingAllowed(false);
+        tabelData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelData);
 
         btnCari.setBackground(new java.awt.Color(0, 102, 204));
@@ -316,6 +331,11 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnCari.setMaximumSize(new java.awt.Dimension(78, 23));
         btnCari.setMinimumSize(new java.awt.Dimension(78, 23));
         btnCari.setPreferredSize(new java.awt.Dimension(78, 23));
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
 
         txtCari.setBackground(new java.awt.Color(204, 204, 204));
         txtCari.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
@@ -422,12 +442,36 @@ public class FormPeminjam extends javax.swing.JFrame {
     }//GEN-LAST:event_numIdActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
+        PeminjamCtrl.reset();
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        
+        PeminjamCtrl.insert();
+        PeminjamCtrl.isiTabel();
+        PeminjamCtrl.reset();
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        PeminjamCtrl.cariNama();
+        PeminjamCtrl.reset();
+    }//GEN-LAST:event_btnCariActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        PeminjamCtrl.update();
+        PeminjamCtrl.isiTabel();
+        PeminjamCtrl.reset();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
+        PeminjamCtrl.delete();
+        PeminjamCtrl.isiTabel();
+        PeminjamCtrl.reset();
+    }//GEN-LAST:event_btnEraseActionPerformed
+
+    private void tabelDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataMouseClicked
+        int row = tabelData.getSelectedRow();
+        PeminjamCtrl.isiField(row);
+    }//GEN-LAST:event_tabelDataMouseClicked
 
     /**
      * @param args the command line arguments

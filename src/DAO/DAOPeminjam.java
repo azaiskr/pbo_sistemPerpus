@@ -27,9 +27,9 @@ public class DAOPeminjam implements IDAOPeminjam{
     //SQL Query 
     String strRead = "select * from tbl_peminjam;"; 
     String strInsert = "insert into tbl_peminjam (id_peminjam,nama_peminjam,prodi,jurusan,angkatan,no_Hp) values (?,?,?,?,?,?);";
-    String strUpdate = "update tbl_peminjam set id_peminjam=?, nama_peminjam=?, prodi=?, jurusan=?, angkatan=?, no_Hp=? where id_buku=?;";
+    String strUpdate = "update tbl_peminjam set nama_peminjam=?, prodi=?, jurusan=?, angkatan=?, no_Hp=? where id_peminjam=?;";
     String strDelete = "delete from tbl_peminjam where id=?;";
-    String strCarinama = "select * from tbl_peminjam where nama like?;";
+    String strCarinama = "select * from tbl_peminjam where nama_peminjam like?;";
     
     public DAOPeminjam(){
         con = KoneksiDB.getConnection();
@@ -52,11 +52,12 @@ public class DAOPeminjam implements IDAOPeminjam{
                 mhs.setJurusan(rs.getString("jurusan"));
                 mhs.setAngkatan(rs.getInt("angkatan"));
                 mhs.setNomor_Hp(rs.getString("nomor_Hp"));
+                listPeminjam.add(mhs);
             }
         }
         catch(SQLException e)
         {
-            System.out.println("Error: "+e);
+            System.out.println("Error: " + e);
         }
         return listPeminjam;
     }
@@ -91,16 +92,16 @@ public class DAOPeminjam implements IDAOPeminjam{
         PreparedStatement statement =null;
         try{
             statement = con.prepareStatement(strUpdate);
-            statement.setInt(1, b.getId_peminjam());
-            statement.setString(2, b.getNama_peminjam());
-            statement.setString(3, b.getProdi());
-            statement.setString(4, b.getJurusan());
-            statement.setInt(5, b.getAngkatan());
-            statement.setString(6, b.getNomor_Hp());
+            statement.setString(1, b.getNama_peminjam());
+            statement.setString(2, b.getProdi());
+            statement.setString(3, b.getJurusan());
+            statement.setInt(4, b.getAngkatan());
+            statement.setString(5, b.getNomor_Hp());
+            statement.setInt(6, b.getId_peminjam());
             statement.execute();
         }
         catch(SQLException e) {
-            System.out.println("Gagal Update Data!");
+            System.out.println("Gagal Update data!");
         }
         finally {
             try{
@@ -117,6 +118,7 @@ public class DAOPeminjam implements IDAOPeminjam{
         try{
             statement = con.prepareStatement(strDelete);
             statement.setInt(1, id);
+            statement.execute();
         }
         catch(SQLException e) {
             System.out.println("Gagal Menghapus Data!");

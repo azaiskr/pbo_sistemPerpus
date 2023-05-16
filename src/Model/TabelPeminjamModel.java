@@ -13,8 +13,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TabelPeminjamModel extends AbstractTableModel{
 
-    List<Peminjam> listPeminjam;
-    
+ 
     public TabelPeminjamModel(List<Peminjam> listPeminjam){
        this.listPeminjam = listPeminjam; 
     }
@@ -68,4 +67,5 @@ public class TabelPeminjamModel extends AbstractTableModel{
                 return null;
         }
     }
+    List<Peminjam> listPeminjam;
 }
