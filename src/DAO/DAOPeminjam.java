@@ -25,11 +25,11 @@ public class DAOPeminjam implements IDAOPeminjam{
     
     Connection con;
     //SQL Query 
-    String strRead = "select * from tbl_peminjam;"; 
-    String strInsert = "insert into tbl_peminjam (id_peminjam,nama_peminjam,prodi,jurusan,angkatan,no_Hp) values (?,?,?,?,?,?);";
-    String strUpdate = "update tbl_peminjam set nama_peminjam=?, prodi=?, jurusan=?, angkatan=?, no_Hp=? where id_peminjam=?;";
-    String strDelete = "delete from tbl_peminjam where id=?;";
-    String strCarinama = "select * from tbl_peminjam where nama_peminjam like?;";
+    String strRead = "SELECT * FROM `tbl_peminjam`;"; 
+    String strInsert = "INSERT INTO `tbl_peminjam` (`id_peminjam`, `nama_peminjam`, `prodi`, `jurusan`, `angkatan`, `nomor_Hp`) VALUES (?, ?, ?, ?, ?, ?);";
+    String strUpdate = "UPDATE `tbl_peminjam` SET `nama_peminjam`=?, `prodi`=?, `jurusan`=?, `angkatan`=?, `nomor_Hp`=? WHERE `id_peminjam`=?;";
+    String strDelete = "DELETE FROM `tbl_peminjam` where `id_peminjam`=?;";
+    String strCarinama = "SELECT * FROM `tbl_peminjam` where `nama_peminjam` like?;";
     
     public DAOPeminjam(){
         con = KoneksiDB.getConnection();
