@@ -58,7 +58,8 @@ public class DAOBuku implements IDAOBuku{
     }
     
     @Override
-    public void insert(Buku b) {
+    public boolean insert(Buku b) {
+        boolean result=true;
         PreparedStatement statement = null;
         try
         {
@@ -76,6 +77,7 @@ public class DAOBuku implements IDAOBuku{
         catch(SQLException e)
         {
             System.out.println("Gagal Input!");
+            result=false;
         }
         finally
         {
@@ -83,8 +85,10 @@ public class DAOBuku implements IDAOBuku{
                 statement.close();
             } catch (SQLException ex) {
                 System.out.println("Gagal Input!");
+                result=false;
             }
         }
+        return result;
     }
     
     @Override
@@ -140,10 +144,41 @@ public class DAOBuku implements IDAOBuku{
         }
     }
     
+    @Override
+    public List<Buku> getAllByName(String judul_buku) {
+        List<Buku> listBuku = null;
+        try
+        {
+            listBuku = new ArrayList<Buku>();
+            PreparedStatement st = con.prepareStatement(strSearch);
+            st.setString(1, "%"+judul_buku+"%");
+            ResultSet rs = st.executeQuery();
+            while(rs.next())
+            {
+                Buku buku = new Buku();
+                buku.setId_buku(rs.getInt("id_buku"));
+                buku.setJudul_buku(rs.getString("judul_buku"));
+                buku.setKatalog_jenis(rs.getString("katalog_jenis"));
+                buku.setPenulis(rs.getString("penulis"));
+                buku.setPenerbit(rs.getString("penerbit"));
+                buku.setTahun_terbit(rs.getInt("tahun_terbit"));
+                buku.setStatus(rs.getString("status"));
+                buku.setJumlah_tersedia(rs.getInt("jumlah_tersedia"));
+                listBuku.add(buku);
+            }
+        }
+        catch(SQLException e)
+        {
+            System.out.println("Error: "+e);
+        }
+        return listBuku;
+    }
+    
     Connection con;
     // SQL Query
-    String strRead = "select * from tbl_buku";
+    String strRead = "select * from tbl_buku order by id;";
     String strInsert = "insert into tbl_buku (id_buku,judul_buku,katalog_jenis,penulis,penerbit,tahun_terbit,status,jumlah_tersedia) values (?,?,?,?,?,?,?,?);";
     String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=? where id_buku=?";
     String strDelete = "delete from tbl_buku where id=?";
+    String strSearch = "select * from tbl_buku where judul_buku like ?;";
 }
