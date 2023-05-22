@@ -312,11 +312,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCariBuku">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCariBukuActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCariBuku">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cari"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCariBukuActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>

@@ -43,8 +43,15 @@ public class ControllerBuku {
         b.setTahun_terbit(Integer.parseInt(frmBuku.gettxtTahun().getText()));
         b.setStatus(frmBuku.getStatus().getSelectedItem().toString());
         b.setJumlah_tersedia(Integer.parseInt(frmBuku.gettxtJumlah().getText()));
-        iBuku.insert(b);
-        JOptionPane.showMessageDialog(null, "Input Berhasil");
+        boolean res = iBuku.insert(b);
+        if(res)
+        {
+            JOptionPane.showMessageDialog(null, "Input Berhasil");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Input Gagal / Data Duplikat");
+        }
     }
     
     public void reset()
@@ -96,6 +103,13 @@ public class ControllerBuku {
         Buku b = new Buku();
         iBuku.delete(Integer.parseInt(frmBuku.gettxtID().getText()));
         JOptionPane.showMessageDialog(null, "Delete Berhasil");
+    }
+    
+    public void search()
+    {
+        listBuku = iBuku.getAllByName(frmBuku.gettxtCariBuku().getText());
+        TabelModelBuku tabelBuku = new TabelModelBuku(listBuku);
+        frmBuku.getTabelData().setModel(tabelBuku);
     }
     
     FormBuku frmBuku;
