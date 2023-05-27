@@ -135,7 +135,18 @@ public class FormBuku extends javax.swing.JFrame {
 
         jLabel9.setText("Cari Buku");
 
+        txtCariBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariBukuActionPerformed(evt);
+            }
+        });
+
         btnCariBuku.setText("Cari");
+        btnCariBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariBukuActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("APLIKASI CRUD BUKU");
 
@@ -294,6 +305,16 @@ public class FormBuku extends javax.swing.JFrame {
         ctBuku.reset();
     }//GEN-LAST:event_btnHapusActionPerformed
 
+    private void txtCariBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariBukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCariBukuActionPerformed
+
+    private void btnCariBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariBukuActionPerformed
+        // TODO add your handling code here:
+        ctBuku.search();
+        ctBuku.reset();
+    }//GEN-LAST:event_btnCariBukuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -395,5 +416,9 @@ public class FormBuku extends javax.swing.JFrame {
     
     public JTextField gettxtJumlah() {
         return txtJumlah;
+    }
+    
+    public JTextField gettxtCariBuku() {
+        return txtCariBuku;
     }
 }
