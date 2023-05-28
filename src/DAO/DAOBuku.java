@@ -177,7 +177,7 @@ public class DAOBuku implements IDAOBuku{
     Connection con;
     // SQL Query
 
-    String strRead = "select * from tbl_buku order by id;";
+    String strRead = "select * from tbl_buku order by id_buku;";
     String strInsert = "insert into tbl_buku (id_buku,judul_buku,katalog_jenis,penulis,penerbit,tahun_terbit,status,jumlah_tersedia) values (?,?,?,?,?,?,?,?);";
     String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=? where id_buku=?";
     String strDelete = "delete from tbl_buku where id=?";
