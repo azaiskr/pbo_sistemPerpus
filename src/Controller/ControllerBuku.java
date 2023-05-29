@@ -8,7 +8,7 @@ import DAO.DAOBuku;
 import DAOInterface.IDAOBuku;
 import Model.Buku;
 import Model.TabelModelBuku;
-import View.FormBuku;
+import View.BukuView;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -17,9 +17,11 @@ import javax.swing.JOptionPane;
  * @author ROG
  */
 public class ControllerBuku {
+    BukuView frmBuku;
+    IDAOBuku iBuku;
+    List<Buku> listBuku;
     
-    
-    public ControllerBuku(FormBuku frmBuku)
+    public ControllerBuku(BukuView frmBuku)
     {
         this.frmBuku = frmBuku;
         iBuku = new DAOBuku();
@@ -112,7 +114,4 @@ public class ControllerBuku {
         frmBuku.getTabelData().setModel(tabelBuku);
     }
     
-    FormBuku frmBuku;
-    IDAOBuku iBuku;
-    List<Buku> listBuku;
 }
