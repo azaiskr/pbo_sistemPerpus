@@ -45,6 +45,7 @@ public class ControllerBuku {
         b.setTahun_terbit(Integer.parseInt(frmBuku.gettxtTahun().getText()));
         b.setStatus(frmBuku.getStatus().getSelectedItem().toString());
         b.setJumlah_tersedia(Integer.parseInt(frmBuku.gettxtJumlah().getText()));
+        b.setISBN(frmBuku.gettxtISBN().getText()); //KOREKSI
         boolean res = iBuku.insert(b);
         if(res)
         {
@@ -83,6 +84,7 @@ public class ControllerBuku {
         frmBuku.gettxtTahun().setText(listBuku.get(row).getTahun_terbit().toString());
         frmBuku.getStatus().setSelectedItem(listBuku.get(row).getStatus());
         frmBuku.gettxtJumlah().setText(listBuku.get(row).getJumlah_tersedia().toString());
+        frmBuku.gettxtISBN().setText(listBuku.get(row).getISBN());
     }
     
     public void update()

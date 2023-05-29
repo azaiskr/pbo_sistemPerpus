@@ -24,7 +24,7 @@ public class TabelModelBuku extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 9;
     }
     
     @Override
@@ -46,6 +46,8 @@ public class TabelModelBuku extends AbstractTableModel{
                 return "Status";
             case 7:
                 return "Jumlah Tersedia";
+            case 8:
+                return "ISBN";
             default:
                 return null;
         }
@@ -70,6 +72,8 @@ public class TabelModelBuku extends AbstractTableModel{
                 return listBuku.get(rowIndex).getStatus();
             case 7:
                 return listBuku.get(rowIndex).getJumlah_tersedia();
+            case 8:
+                return listBuku.get(rowIndex).getISBN();
             default:
                 return null;
         }

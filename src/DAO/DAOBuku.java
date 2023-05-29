@@ -47,6 +47,7 @@ public class DAOBuku implements IDAOBuku{
                 buku.setTahun_terbit(rs.getInt("tahun_terbit"));
                 buku.setStatus(rs.getString("status"));
                 buku.setJumlah_tersedia(rs.getInt("jumlah_tersedia"));
+                buku.setISBN(rs.getString("isbn"));
                 listBuku.add(buku);
             }
         }
@@ -72,6 +73,7 @@ public class DAOBuku implements IDAOBuku{
             statement.setInt(6, b.getTahun_terbit());
             statement.setString(7, b.getStatus());
             statement.setInt(8, b.getJumlah_tersedia());
+            statement.setString(9, b.getISBN());
             statement.execute();
         }
         catch(SQLException e)
@@ -104,7 +106,9 @@ public class DAOBuku implements IDAOBuku{
             statement.setInt(5, b.getTahun_terbit());
             statement.setString(6, b.getStatus());
             statement.setInt(7, b.getJumlah_tersedia());
-            statement.setInt(8, b.getId_buku());
+            statement.setString(8, b.getISBN());
+            statement.setInt(9, b.getId_buku());
+            
             statement.execute();
         }
         catch(SQLException e)
@@ -164,6 +168,7 @@ public class DAOBuku implements IDAOBuku{
                 buku.setTahun_terbit(rs.getInt("tahun_terbit"));
                 buku.setStatus(rs.getString("status"));
                 buku.setJumlah_tersedia(rs.getInt("jumlah_tersedia"));
+                buku.setISBN(rs.getString("isbn"));
                 listBuku.add(buku);
             }
         }
@@ -178,8 +183,8 @@ public class DAOBuku implements IDAOBuku{
     // SQL Query
 
     String strRead = "select * from tbl_buku order by id_buku;";
-    String strInsert = "insert into tbl_buku (id_buku,judul_buku,katalog_jenis,penulis,penerbit,tahun_terbit,status,jumlah_tersedia) values (?,?,?,?,?,?,?,?);";
-    String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=? where id_buku=?";
+    String strInsert = "insert into tbl_buku (id_buku,judul_buku,katalog_jenis,penulis,penerbit,tahun_terbit,status,jumlah_tersedia,isbn) values (?,?,?,?,?,?,?,?,?);";
+    String strUpdate = "update tbl_buku set judul_buku=?, katalog_jenis=?, penulis=?, penerbit=?, tahun_terbit=?, status=?, jumlah_tersedia=?, isbn=? where id_buku=?";
     String strDelete = "delete from tbl_buku where id=?";
     String strSearch = "select * from tbl_buku where judul_buku like ?;";
 }

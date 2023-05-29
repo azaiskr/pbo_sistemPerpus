@@ -121,6 +121,20 @@ public class Buku {
     public void setJumlah_tersedia(Integer jumlah_tersedia) {
         this.jumlah_tersedia = jumlah_tersedia;
     }
+    
+    /**
+     * @return the isbn
+     */
+    public String getISBN() {
+        return isbn;
+    }
+
+    /**
+     * @param isbn the isbn to set
+     */
+    public void setISBN(String isbn) {
+        this.isbn = isbn;
+    }
     private Integer id_buku;
     private String judul_buku;
     private String katalog_jenis;
@@ -129,4 +143,5 @@ public class Buku {
     private Integer tahun_terbit;
     private String status;
     private Integer jumlah_tersedia;
+    private String isbn;
 }
