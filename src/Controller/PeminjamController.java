@@ -6,7 +6,7 @@ package Controller;
 
 import DAO.DAOPeminjam;
 import DAOInterface.IDAOPeminjam;
-import View.FormPeminjam;
+import View.PeminjamView;
 import java.util.List;
 import Model.Peminjam;
 import Model.TabelPeminjamModel;
@@ -17,11 +17,12 @@ import javax.swing.JOptionPane;
  * @author nuraz
  */
 public class PeminjamController {
-    FormPeminjam frame;
+//    FormPeminjam frame;
+    PeminjamView frame;
     IDAOPeminjam implPeminjam;
     List<Peminjam> listPeminjam;
     
-    public PeminjamController(FormPeminjam frame){
+    public PeminjamController(PeminjamView frame){
         this.frame = frame;
         implPeminjam = new DAOPeminjam();
     }

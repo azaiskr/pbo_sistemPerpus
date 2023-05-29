@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package View;
 
@@ -13,16 +13,19 @@ import javax.swing.JTextField;
  *
  * @author nuraz
  */
-public class FormPeminjam extends javax.swing.JFrame {
+public class PeminjamView extends javax.swing.JPanel {
     PeminjamController PeminjamCtrl;
-    
-    public FormPeminjam() {
+    /**
+     * Creates new form Peminjam
+     */
+    public PeminjamView() {
         initComponents();
-        PeminjamCtrl= new PeminjamController(this);
+        PeminjamCtrl = new PeminjamController(this);
         PeminjamCtrl.isiTabel();
+        btnUpdate.setEnabled(false);
+        btnErase.setEnabled(false);
     }
-    
-    public JTable getTabelData(){
+        public JTable getTabelData(){
         return tabelData;
     }
     
@@ -63,6 +66,7 @@ public class FormPeminjam extends javax.swing.JFrame {
     public JButton getBtnFind(){
         return btnCari;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,43 +101,52 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnCari = new javax.swing.JButton();
         txtCari = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 550));
+        setPreferredSize(new java.awt.Dimension(1000, 550));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1000, 550));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Keep Calm Med", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Data Peminjam");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 153, 0), 2, true), "Form Tambah Data ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Keep Calm Med", 1, 10), new java.awt.Color(255, 153, 51))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 102, 102), 3, true), "Form Data ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Keep Calm Med", 1, 10), new java.awt.Color(0, 153, 153))); // NOI18N
         jPanel3.setForeground(new java.awt.Color(0, 0, 0));
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("ID");
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Nama");
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Prodi");
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Jurusan");
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Angkatan");
 
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Nomor HP");
 
         numId.setBackground(new java.awt.Color(204, 204, 204));
@@ -141,7 +154,6 @@ public class FormPeminjam extends javax.swing.JFrame {
         numId.setForeground(new java.awt.Color(51, 51, 51));
         numId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         numId.setToolTipText("");
-        numId.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         numId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numIdActionPerformed(evt);
@@ -151,27 +163,22 @@ public class FormPeminjam extends javax.swing.JFrame {
         txtNama.setBackground(new java.awt.Color(204, 204, 204));
         txtNama.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtNama.setForeground(new java.awt.Color(51, 51, 51));
-        txtNama.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
         txtProdi.setBackground(new java.awt.Color(204, 204, 204));
         txtProdi.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtProdi.setForeground(new java.awt.Color(51, 51, 51));
-        txtProdi.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
         txtJurusan.setBackground(new java.awt.Color(204, 204, 204));
         txtJurusan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtJurusan.setForeground(new java.awt.Color(51, 51, 51));
-        txtJurusan.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
         txtNomor.setBackground(new java.awt.Color(204, 204, 204));
         txtNomor.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtNomor.setForeground(new java.awt.Color(51, 51, 51));
-        txtNomor.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
         numAngkatan.setBackground(new java.awt.Color(204, 204, 204));
         numAngkatan.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         numAngkatan.setForeground(new java.awt.Color(51, 51, 51));
-        numAngkatan.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -180,32 +187,21 @@ public class FormPeminjam extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(txtNomor))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtProdi))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numId, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtNama)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(numAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(174, 174, 174))
-                            .addComponent(txtJurusan))))
-                .addGap(26, 26, 26))
+                    .addComponent(txtNomor, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                    .addComponent(txtJurusan)
+                    .addComponent(txtProdi)
+                    .addComponent(txtNama)
+                    .addComponent(numAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numId, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,34 +210,35 @@ public class FormPeminjam extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(numId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtProdi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtJurusan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(numAngkatan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(28, 28, 28))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        btnCreate.setBackground(new java.awt.Color(255, 153, 51));
+        btnCreate.setBackground(new java.awt.Color(0, 153, 102));
         btnCreate.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
         btnCreate.setAlignmentY(0.0F);
+        btnCreate.setBorder(null);
         btnCreate.setBorderPainted(false);
         btnCreate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCreate.setPreferredSize(new java.awt.Dimension(78, 23));
@@ -255,6 +252,7 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnReset.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
         btnReset.setForeground(new java.awt.Color(255, 255, 255));
         btnReset.setText("Reset");
+        btnReset.setBorder(null);
         btnReset.setBorderPainted(false);
         btnReset.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnReset.setMaximumSize(new java.awt.Dimension(78, 23));
@@ -270,6 +268,7 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnUpdate.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(null);
         btnUpdate.setBorderPainted(false);
         btnUpdate.setMaximumSize(new java.awt.Dimension(78, 23));
         btnUpdate.setMinimumSize(new java.awt.Dimension(78, 23));
@@ -284,6 +283,7 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnErase.setFont(new java.awt.Font("Keep Calm Med", 1, 12)); // NOI18N
         btnErase.setForeground(new java.awt.Color(255, 255, 255));
         btnErase.setText("Erase");
+        btnErase.setBorder(null);
         btnErase.setBorderPainted(false);
         btnErase.setMaximumSize(new java.awt.Dimension(78, 23));
         btnErase.setMinimumSize(new java.awt.Dimension(78, 23));
@@ -326,7 +326,8 @@ public class FormPeminjam extends javax.swing.JFrame {
         btnCari.setForeground(new java.awt.Color(255, 255, 255));
         btnCari.setText("Find");
         btnCari.setAlignmentY(0.0F);
-        btnCari.setBorderPainted(false);
+        btnCari.setBorder(null);
+        btnCari.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCari.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCari.setMaximumSize(new java.awt.Dimension(78, 23));
         btnCari.setMinimumSize(new java.awt.Dimension(78, 23));
@@ -340,8 +341,7 @@ public class FormPeminjam extends javax.swing.JFrame {
         txtCari.setBackground(new java.awt.Color(204, 204, 204));
         txtCari.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 12)); // NOI18N
         txtCari.setForeground(new java.awt.Color(51, 51, 51));
-        txtCari.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtCari.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        txtCari.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtCari.setPreferredSize(new java.awt.Dimension(71, 23));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -350,51 +350,47 @@ public class FormPeminjam extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnErase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnErase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                .addGap(35, 35, 35))
+                        .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnErase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addGap(18, 18, 18))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnErase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -417,96 +413,72 @@ public class FormPeminjam extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void numIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numIdActionPerformed
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        PeminjamCtrl.reset();
-    }//GEN-LAST:event_btnResetActionPerformed
-
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         PeminjamCtrl.insert();
         PeminjamCtrl.isiTabel();
         PeminjamCtrl.reset();
+        btnUpdate.setEnabled(false);
+        btnErase.setEnabled(false);
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-        PeminjamCtrl.cariNama();
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         PeminjamCtrl.reset();
-    }//GEN-LAST:event_btnCariActionPerformed
+        btnCreate.setEnabled(true);
+        btnReset.setEnabled(true);
+        btnErase.setEnabled(false);
+        btnUpdate.setEnabled(false);
+    }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         PeminjamCtrl.update();
         PeminjamCtrl.isiTabel();
         PeminjamCtrl.reset();
+        btnCreate.setEnabled(true);
+        btnReset.setEnabled(true);
+        btnErase.setEnabled(false);
+        btnUpdate.setEnabled(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
         PeminjamCtrl.delete();
         PeminjamCtrl.isiTabel();
         PeminjamCtrl.reset();
+        btnCreate.setEnabled(true);
+        btnReset.setEnabled(true);
+        btnErase.setEnabled(false);
+        btnUpdate.setEnabled(false);
     }//GEN-LAST:event_btnEraseActionPerformed
 
     private void tabelDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelDataMouseClicked
         int row = tabelData.getSelectedRow();
         PeminjamCtrl.isiField(row);
+        btnCreate.setEnabled(false);
+        btnReset.setEnabled(true);
+        btnUpdate.setEnabled(true);
+        btnErase.setEnabled(true);
     }//GEN-LAST:event_tabelDataMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormPeminjam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormPeminjam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormPeminjam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormPeminjam.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        PeminjamCtrl.cariNama();
+        PeminjamCtrl.reset();
+    }//GEN-LAST:event_btnCariActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormPeminjam().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCari;
